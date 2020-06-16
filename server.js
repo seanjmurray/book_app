@@ -3,6 +3,7 @@ require('dotenv').config();
 require('ejs');
 const express = require('express');
 const superagent = require('superagent');
+const pg = require('pg');
 const app = express();
 const PORT = process.env.PORT || 8080;
 app.use('/public',express.static('public'));
@@ -10,11 +11,10 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({
   extended: true
 }));
+const home = require('./libs/home');
 
+app.get('/', home.getHome)
 
-app.get('/', (req,res) => {
-  res.render('pages/index');
-})
 
 app.route('/searches/new')
   .get((req,res)=>{

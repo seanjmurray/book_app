@@ -29,7 +29,7 @@ npm start
 ```
 
 ## Architecture
-This API is designed to handle GET requests on /location and /weather routes to serve data to a front end.
+
 
 ### Libraries Used:
  - Express

@@ -1,0 +1,9 @@
+<section>
+  <h2>Number of Saved Books: <%= books.length %></h2>
+  <%  books.forEach(book => { %>
+  <img src=" <%= book.image_url %> " alt=" <%= book.title %> " title=" <%= book.title %> ">
+  <h3> <%= book.title %> </h3>
+  <h4><em> <%= book.author %> </em></h4>
+  <p> <%= `${book.description.substring(0, 220)}` %> <a href="/books/<%= book.id %>">...</a> </p>
+  <% }) %>
+</section>

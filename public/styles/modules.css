@@ -1,48 +1,82 @@
-h2{
-  font-size: 2em;
+.travolta{
+  background-image: url('https://media3.giphy.com/media/20k1punZ5bpmM/giphy.gif?cid=ecf05e47597db588a1f048754250f58a6a2144b991c7fe65&rid=giphy.gif');
+  background-size: cover;
+  width: 100vw;
+  height: 100vw;
+  line-height: 50vh;
+  text-align: center;
 }
-/* NavBar */
-nav{
-  height: 4em;
+.error{
+  font-size: 3em;
+  font-weight: 800;
+}
+.error a{
+  text-decoration: none;
+  color: #fff;
+}
+
+
+.card{
+  border-radius: 2em;
+  width: 400px;
+  margin: 50px auto;
+  background-color: #444444;
+  padding: 5em;
+}
+.card form input{
+  width: 400px;
+}
+
+label {
+  padding: 2em 0;
+  width: 100%;
+  display: block;
+  text-align: center;
+  color: #222222;
+  transition: ease-in 250ms;
+}
+
+input:checked ~ label {
   background-color: #222222;
   color: #fff;
-  padding: 2em 3em;
 }
-.icon{
-  display: inline-block;
-}
-.dropdown{
-  display:none;
-}
-#dropDown a{
-  display: block;
+#text, button{
   background-color: #222222;
-  width: 100vw;
+  color: #fff;
+  border: none;
+  text-align: center;
 }
 
-form{
-  margin: auto;
-  width: 80%;
+#radio1, #radio2 {
+  visibility: hidden;
 }
-input{
-  display: block;
-  height: 2em;
+input, button{
+  width: 100%;
+  height: 4em;
 }
-
+button{
+  width: 100%;
+  height: 6em;
+  margin-top: 2em;
+}
 
 article{
-  height: 30vh;
-  width: 85vh;
-  overflow: ;
+  width: 400px;
+  margin: auto;
 }
 
-.error{
-  background-color: #1bd000;
-  text-align: center;
-  font-size: 2em;
-  padding: 2em;
+
+/* Tablet */
+@media (min-width: 760px) {
+
 }
-.error a {
-  text-decoration: none;
-  color: #222222;
+/* Laptop */
+@media (min-width: 990px) {
+
 }
+/* Desktop */
+@media (min-width: 1200px) {
+
+}
+
+  

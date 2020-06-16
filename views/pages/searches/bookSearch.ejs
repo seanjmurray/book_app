@@ -1,13 +1,11 @@
 <%- include('../../partials/header') %>
 <section class="container">
-  <div>
   <form action="/searches" method="POST">
     <input type="text" name="search" placeholder="Enter a title or author" required>
     <label>Search by title:<input type="radio" name="search" value="title" required></label>
     <label>Search by author:<input type="radio" name="search" value="author" required></label>
     <button type="submit">Search the Google Books API</button>
   </form>
-</div>
 </section>
 
 

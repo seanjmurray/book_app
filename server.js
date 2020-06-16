@@ -37,7 +37,9 @@ app.route('/searches')
       }).catch(err => console.log(err))
   })
 
-
+app.use('*',(req,res)=>{
+  res.render('./pages/error')
+})
 
 function Book(obj){
   this.title = obj.title ? obj.title : 'No title available';

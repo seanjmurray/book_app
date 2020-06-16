@@ -4,6 +4,15 @@
   <img src=" <%= book.image_url %> " alt=" <%= book.title %> " title=" <%= book.title %> ">
   <h3> <%= book.title %> </h3>
   <h4><em> <%= book.author %> </em></h4>
-  <p> <%= `${book.description.substring(0, 220)}` %> <a href="/books/<%= book.id %>">...</a> </p>
+  <p> <%= `${book.description.substring(0, 220)}` %>...</p>
+  <form action="/books" method="POST">
+    <input type="hidden" name="author" value="<%= book.author %>">
+    <input type="hidden" name="title" value="<%= book.title %>">
+    <input type="hidden" name="isbn" value="<%= book.isbn %>">
+    <input type="hidden" name="description" value="<%= book.description %>">
+    <input type="hidden" name="image_url" value="<%= book.image_url %>">
+    <input type="hidden" name="bookshelf" value="bookshelf-1">
+    <button type="submit">Save to your bookshelf?</button>
+  </form>
   <% }) %>
 </section>

@@ -1,16 +1,18 @@
 <%- include('../../partials/header') %>
-<section class="container">
-<%  bookArr.forEach(book => { %>
-<article>
-<img src=" <%= book.img %> " alt=" <%= book.title %> " title=" <%= book.title %> ">
-<h3> <%= book.title %> </h3>
-<% book.author.forEach(author =>{ %>
-  <h4><em> <%= author %> </em></h4>
-<% }) %>
-<p> <%= `${book.description.substring(0, 220)} ...` %> </p>
-</article>
-<% }) %>
-</section>
+
+  <section class="container">
+  <%  bookArr.forEach(book => { %>
+  <article>
+  <img src=" <%= book.img %> " alt=" <%= book.title %> " title=" <%= book.title %> ">
+  <h3> <%= book.title %> </h3>
+  <% book.author.forEach(author =>{ %>
+    <h4><em> <%= author %> </em></h4>
+  <% }) %>
+  <p> <%= `${book.description.substring(0, 220)} ...` %> </p>
+  </article>
+  <% }) %>
+  </section>
+
 
 
 <%- include('../../partials/footer') %>

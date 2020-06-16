@@ -1,26 +1,41 @@
 # book_app
 
 **Author**: Sean Murray and Paul Rest
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.0.0
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for a Code 301 class. (i.e. What's your problem domain?) -->
+
 
 ## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+### Step 1:
+Once you have cloned the repo in the command line run:
+
+```
+npm i
+```
+### Step 2:
+Create a local **.env** file and insert the following:
+ - openport should be a number for an open port on your machine.
+```
+PORT=<openport>
+```
+
+### Step 3:
+To start the server run the following in the terminal:
+
+```
+npm start
+```
 
 ## Architecture
- ### Packages:
-  - express
-  - superagent
-  - ejs
-  - dotenv
+This API is designed to handle GET requests on /location and /weather routes to serve data to a front end.
+
+### Libraries Used:
+ - Express
+ - dotenv
+ - superagent
+
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with GET and POST routes for the book resource.
-
-## Credits and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+ - 06-16-2020 1800 Add Book api and basic layout of routes and CSS.

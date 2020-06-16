@@ -12,9 +12,10 @@ app.use(express.urlencoded({
   extended: true
 }));
 const home = require('./libs/home');
+const librarian = require('./libs/librarian');
 
 app.get('/', home.getHome)
-
+app.get('/books/:id', librarian.bookView)
 
 app.route('/searches/new')
   .get((req,res)=>{
@@ -33,7 +34,7 @@ app.route('/searches')
           console.log('I didn\'t break it',obj)
           return new Book(obj.volumeInfo)
         })
-        res.render('./pages/searches/showResults', {bookArr: retArr})
+        res.render('./pages/searches/showResults', {books: retArr})
       }).catch(err => console.log(err))
   })
 
@@ -46,9 +47,9 @@ function Book(obj){
   this.author= obj.authors ? obj.authors : ['No author posted'];
   this.description= obj.description ? obj.description : 'No description available'
   if(obj.imageLinks){
-    this.img= obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail.replace(/http:/, 'https:') : 'https://i.imgur.com/J5LVHEL.jpg';
+    this.image_url= obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail.replace(/http:/, 'https:') : 'https://i.imgur.com/J5LVHEL.jpg';
   } else{
-    this.img='https://i.imgur.com/J5LVHEL.jpg';
+    this.image_url='https://i.imgur.com/J5LVHEL.jpg';
   }
 }
 

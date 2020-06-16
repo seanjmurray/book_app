@@ -13,9 +13,11 @@ app.use(express.urlencoded({
 }));
 const home = require('./libs/home');
 const librarian = require('./libs/librarian');
+const shelf = require('./libs/deweyDecimaler');
 
 app.get('/', home.getHome)
 app.get('/books/:id', librarian.bookView)
+app.post('/books', shelf.storeBook);
 
 app.route('/searches/new')
   .get((req,res)=>{
@@ -31,7 +33,6 @@ app.route('/searches')
       .query(query)
       .then(apiData => {
         let retArr = apiData.body.items.map(obj => {
-          console.log('I didn\'t break it',obj)
           return new Book(obj.volumeInfo)
         })
         res.render('./pages/searches/showResults', {books: retArr})
@@ -44,6 +45,7 @@ app.use('*',(req,res)=>{
 
 function Book(obj){
   this.title = obj.title ? obj.title : 'No title available';
+  this.isbn = `${obj.industryIdentifiers[0].type} ${obj.industryIdentifiers[0].identifier}`;
   this.author= obj.authors ? obj.authors : ['No author posted'];
   this.description= obj.description ? obj.description : 'No description available'
   if(obj.imageLinks){

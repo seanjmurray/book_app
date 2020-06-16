@@ -35,3 +35,14 @@ article{
   width: 85vh;
   overflow: ;
 }
+
+.error{
+  background-color: #1bd000;
+  text-align: center;
+  font-size: 2em;
+  padding: 2em;
+}
+.error a {
+  text-decoration: none;
+  color: #222222;
+}

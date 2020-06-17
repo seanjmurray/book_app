@@ -50,9 +50,19 @@ input:checked ~ label {
 #radio1, #radio2 {
   visibility: hidden;
 }
+
 input, button{
   width: 100%;
   height: 4em;
+}
+textarea{
+  width: 100%;
+}
+textarea, input{
+  background-color: #222222;
+  color: #fff;
+  border: none;
+  margin: 1em 0;
 }
 button{
   width: 100%;

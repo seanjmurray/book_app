@@ -20,7 +20,6 @@ const storeBook = (req,res) => {
   let safe = [isbn]
   client.query(sql,safe)
     .then(dbData =>{
-      console.log(dbData.rows);
       if(dbData.rowCount === 0){
         let sql = 'INSERT INTO books (author, title, isbn, image_url, description, bookshelf) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id;';
         let safe = [author, title, isbn, image_url, description, bookshelf];

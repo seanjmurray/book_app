@@ -2,60 +2,29 @@
 require('dotenv').config();
 require('ejs');
 const express = require('express');
-const superagent = require('superagent');
-const pg = require('pg');
 const app = express();
 const PORT = process.env.PORT || 8080;
+const home = require('./libs/home');
+const librarian = require('./libs/librarian');
+const shelf = require('./libs/deweyDecimaler');
+const search = require('./libs/search');
+const error = require('./libs/error');
 app.use('/public',express.static('public'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({
   extended: true
 }));
-const home = require('./libs/home');
-const librarian = require('./libs/librarian');
-const shelf = require('./libs/deweyDecimaler');
 
-app.get('/', home.getHome)
-app.get('/books/:id', librarian.bookView)
-app.post('/books', shelf.storeBook);
-
+app.route('/')
+  .get(home.getHome)
+app.route('/books/:id')
+  .get(librarian.bookView)
+app.route('/books')
+  .post(shelf.storeBook);
 app.route('/searches/new')
-  .get((req,res)=>{
-    res.render('./pages/searches/bookSearch');
-  })
+  .get(search.likeGoogleResultsButForOurBooks)
 app.route('/searches')
-  .post((req,res)=>{
-    let url = 'https://www.googleapis.com/books/v1/volumes';
-    let query = {
-      q: `in${req.body.search[1]}:${req.body.search[0]}`
-    }
-    superagent.get(url)
-      .query(query)
-      .then(apiData => {
-        let retArr = apiData.body.items.map(obj => {
-          return new Book(obj.volumeInfo)
-        })
-        res.render('./pages/searches/showResults', {books: retArr})
-      }).catch(err => console.log(err))
-  })
-
-app.use('*',(req,res)=>{
-  res.render('./pages/error')
-})
-
-function Book(obj){
-  this.title = obj.title ? obj.title : 'No title available';
-  this.isbn = `${obj.industryIdentifiers[0].type} ${obj.industryIdentifiers[0].identifier}`;
-  this.author= obj.authors ? obj.authors : ['No author posted'];
-  this.description= obj.description ? obj.description : 'No description available'
-  if(obj.imageLinks){
-    this.image_url= obj.imageLinks.thumbnail ? obj.imageLinks.thumbnail.replace(/http:/, 'https:') : 'https://i.imgur.com/J5LVHEL.jpg';
-  } else{
-    this.image_url='https://i.imgur.com/J5LVHEL.jpg';
-  }
-}
-
-
-
+  .post(search.digitalBookConveyingSystem)
+app.use('*',error.notFound)
 app.listen(PORT, ()=> console.log(`Listening on ${PORT}`));
 

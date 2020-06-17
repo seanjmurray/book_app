@@ -5,9 +5,25 @@ body{
 main{
   width: 480px;
   margin: auto;
+  line-height: 1.5em;
 }
 h1,h2,h3,h4{
   font-family: 'Montserrat', sans-serif;
+}
+h2{
+  font-size: 1.5em;
+  font-weight: 600;
+}
+h3{
+  font-style: italic;
+  font-size: 1.25;
+}
+h4{
+  font-weight: 600;
+}
+p{
+  color: #999999;
+  text-align: justify;
 }
 /* Tablet */
 @media (min-width: 760px) {
@@ -19,6 +35,10 @@ main{
 @media (min-width: 990px) {
 main{
   width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
 }
 }
 /* Desktop */

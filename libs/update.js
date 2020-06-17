@@ -15,7 +15,6 @@ client.connect();
 
 
 const rewriteHistory = (req,res) => {
-  console.log(req.body)
   let {author, title, isbn, image_url, description, bookshelf} = req.body
   let sql = 'UPDATE books SET author = $1, title = $2, isbn = $3, image_url = $4, description = $5, bookshelf = $6 WHERE id = $7;';
   let safe = [author, title, isbn, image_url, description, bookshelf, req.params.id];

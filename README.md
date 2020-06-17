@@ -1,7 +1,7 @@
 # book_app
 
 **Author**: Sean Murray and Paul Rest
-**Version**: 1.0.0
+**Version**: 1.1.2
 
 ## Overview
 
@@ -33,9 +33,12 @@ npm start
 
 ### Libraries Used:
  - Express
+ - EJS
  - dotenv
  - superagent
+ - pg
 
 
 ## Change Log
  - 06-16-2020 1800 Add Book api and basic layout of routes and CSS.
+ -06-17-2020 1800 Add SQL db to persist user book selections, Add detailed view for books in collection.

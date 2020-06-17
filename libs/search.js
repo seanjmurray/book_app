@@ -27,7 +27,7 @@ const digitalBookConveyingSystem = (req,res)=>{
 function Book(obj){
   this.title = obj.title ? obj.title : 'No title available';
   if(!obj.industryIdentifiers){
-    this.isbn='No ISBN availible';
+    this.isbn='No ISBN available';
   }else{
     this.isbn = `${obj.industryIdentifiers[0].type} ${obj.industryIdentifiers[0].identifier}`;
   }

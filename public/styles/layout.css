@@ -1,43 +1,12 @@
   
-  nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #222222;
-    width: 100vw;
-    height: 7.5vh;
-  }
-  nav a{
-    color: #fff;
-    text-decoration: none;
-    height: 7.5vh;
-    line-height: 7.5vh;
-    width: 20vw;
-    text-align: center;
-  }
-  nav a:hover{
-    background-color: #fff;
-    color: #222222;
-    transition: ease-in 250ms;
-  }
-  .icon{
-    padding: 0 10vw;
-  }
-
-  .hidden{
-    display: none;
-  }
   
-
   /* Tablet */
   @media (min-width: 760px) {
 
   }
   /* Laptop */
   @media (min-width: 990px) {
-    .hidden{
-      display: inline-block;
-    }
+
   }
   
   /* Desktop */

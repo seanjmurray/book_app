@@ -1,9 +1,9 @@
 
 <%  books.forEach(book => { %>
-    <section class="card">
+    <section class="mycard">
   <img src=" <%= book.image_url %> " alt=" <%= book.title %> " title=" <%= book.title %> ">
-  <h3> <%= book.title %> </h3>
-  <h4><em> <%= book.author %> </em></h4>
+  <h2> <%= book.title %> </h2>
+  <h3><em> <%= book.author %> </em></h3>
   <p> <%= `${book.description.substring(0, 220)}` %>...</p>
   <form action="/books" method="POST">
     <input type="hidden" name="author" value="<%= book.author %>">

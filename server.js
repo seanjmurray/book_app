@@ -10,6 +10,7 @@ const librarian = require('./libs/librarian');
 const shelf = require('./libs/deweyDecimaler');
 const search = require('./libs/search');
 const update = require('./libs/update');
+const author = require('./libs/author');
 const error = require('./libs/error');
 app.use('/public',express.static('public'));
 app.use(methodOverride('_method'))
@@ -28,6 +29,8 @@ app.route('/searches/new')
   .get(search.likeGoogleResultsButForOurBooks)
 app.route('/searches')
   .post(search.digitalBookConveyingSystem)
+app.route('/author')
+  .get(author.getAuthor)
 app.route('/update/:id')
   .put(update.rewriteHistory)
   .delete(update.burnBook)
